@@ -5,17 +5,10 @@ import { getUserProfile } from '@/config/getUserProfile';
 import { useRouter, usePathname } from 'next/navigation';
 import { useAuth } from '@clerk/nextjs';
 
-
-
-
 interface SideBarProps {
     isOpen: boolean;
     onClose: () => void;
 }
-
-
-
-
 
 const SideBar: React.FC<SideBarProps> = ({ isOpen, onClose }) => {
     const [user, setUser] = useState<{ isAdmin?: boolean } | null>(null);
@@ -69,7 +62,7 @@ const SideBar: React.FC<SideBarProps> = ({ isOpen, onClose }) => {
             name: "Hotels",
             icon: <LuHotel size={25} />,
             onClick: () => router.push("/admin/hotels"),
-            isActive: pathname === "/admin/hotels"
+            isActive: pathname.includes("/admin/hotels")
         },
         {
             name: "Rooms",
