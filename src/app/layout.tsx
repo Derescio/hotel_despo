@@ -4,6 +4,8 @@ import ThemeProvider from "@/providers/theme.provider";
 import { ClerkProvider } from '@clerk/nextjs'
 import Navbar from "@/components/Navbar";
 import "./globals.css";
+import Loading from "./loading";
+import { Suspense } from "react";
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -33,8 +35,10 @@ export default function RootLayout({
       >
         <ClerkProvider>
           <ThemeProvider>
-            <Navbar />
-            {children}
+            <Suspense fallback={<Loading />}>
+              <Navbar />
+              {children}
+            </Suspense>
           </ThemeProvider>
         </ClerkProvider>
 

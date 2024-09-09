@@ -18,8 +18,6 @@ const UserInfo = async () => {
 }
 
 const Navbar = async () => {
-    const { success, data: user } = await getCurrentUserFromDB()
-
 
     return (
         <div className='container mx-auto'>
